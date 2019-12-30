@@ -34,8 +34,9 @@ func main() {
 	errs := make(chan error, 2)
 
 	go func() {
-		fmt.Println("Listening on port :8000")
-		errs <- http.ListenAndServe(httpPort(), r)
+		port := httpPort()
+		fmt.Println("Listening on port :" + port)
+		errs <- http.ListenAndServe(port, r)
 
 	}()
 
@@ -51,7 +52,7 @@ func main() {
 func httpPort() string {
 	port := "8080"
 
-	if os.Getenv("URL_DB") != "" {
+	if os.Getenv("PORT") != "" {
 		port = os.Getenv("PORT")
 	}
 	return fmt.Sprintf(":%s", port)
