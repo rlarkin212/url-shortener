@@ -30,7 +30,7 @@ func newMongoClient(mongoURL string, mongoTimeout int) (*mongo.Client, error) {
 		return nil, err
 	}
 
-	//check r/w access
+	//check if connected
 	err = client.Ping(ctx, readpref.Primary())
 	if err != nil {
 		return nil, err
