@@ -21,8 +21,8 @@ type redirectService struct {
 	redirectRepo RedirectRespository
 }
 
-//NewRedirectRespository new instance of RedirectRespository
-func NewRedirectRespository(redirectRepo RedirectRespository) RedirectService {
+//NewRedirectService new instance of redirect service
+func NewRedirectService(redirectRepo RedirectRespository) RedirectService {
 	return &redirectService{
 		redirectRepo,
 	}
